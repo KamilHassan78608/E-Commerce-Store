@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroPic from '/Users/mac/Documents/Web/E_Commerce_Store/frontend/src/assets/Hero.jpg'
+import HeroPic from '/Users/mac/Documents/Web/E-Commerce-Store/frontend/src/assets/Hero.jpg'
 
 const Hero = () => {
   return (
@@ -10,14 +10,14 @@ const Hero = () => {
         <div className='text-[#414141]'>
             <div className="flex items-center gap-2">
                 {/* Added h-[2px] back from the image */}
-                <p className='w-8 md:w-11 h-[2px] bg-[#414141]'></p> 
+                <p className='w-8 md:w-11 h-0.5 bg-[#414141]'></p> 
                 {/* Using your title case "Our BestSellers" */}
                 <p className='font-medium text-sm md:text-base prata-regular'>Our BestSellers</p> 
             </div>
             <h1 className='text-3xl sm:py-3 lg:text-5xl leading-relaxed michroma-regular'>Latest Arrivals</h1>
             <div className='flex items-center gap-2'>
                 <p className='font-semibold sm:text-sm md:text-base prata-regular'>Shop Now</p>
-                <p className='w-8 md:w-11 h-[2px] bg-[#414141]'></p>
+                <p className='w-8 md:w-11 h-0.5 bg-[#414141]'></p>
             </div>
         </div>
       </div>
