@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "101",
+    "name": "Women Clothes",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta provident corrupti ducimus aperiam et libero, ut beatae reprehenderit voluptate velit temporibus consectetur, commodi nemo sed nulla laborum vitae accusamus perspiciatis.",
+    "imgUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80",
+    "price": "200"
+  },
+  {
+    "_id": "102",
+    "name": "Men Jacket",
+    "description": "Stylish winter jacket for men with durable zippers and soft inner lining, perfect for casual and outdoor wear.",
+    "imgUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+    "price": "350"
+  },
+  {
+    "_id": "103",
+    "name": "Kids T-Shirt",
+    "description": "Comfortable cotton t-shirt for kids, breathable and soft on the skin. Ideal for everyday use.",
+    "imgUrl": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
+    "price": "120"
+  },
+  {
+    "_id": "104",
+    "name": "Women Handbag",
+    "description": "Elegant leather handbag with spacious compartments, perfect for daily outings and formal events.",
+    "imgUrl": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
+    "price": "500"
+  },
+  {
+    "_id": "107",
+    "name": "Men Watch",
+    "description": "Luxury wristwatch with a stainless steel body and a premium leather strap, suitable for every occasion.",
+    "imgUrl": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
+    "price": "650"
+  },
+  {
+    "_id": "108",
+    "name": "Women Scarf",
+    "description": "Soft silk scarf that complements both casual and formal looks, available in vibrant colors.",
+    "imgUrl": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80",
+    "price": "180"
+  },
+  {
+    "_id": "109",
+    "name": "Men Sunglasses",
+    "description": "Polarized sunglasses offering 100% UV protection, with a sleek design that matches any outfit.",
+    "imgUrl": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
+    "price": "230"
+  },
+  {
+    "_id": "112",
+    "name": "Men Formal Shirt",
+    "description": "Slim-fit formal shirt made of premium cotton fabric, ideal for business meetings and office wear.",
+    "imgUrl": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
+    "price": "220"
+  }
+]
