@@ -7,7 +7,7 @@ const ProductItem = ({ id, name, description, price, image }) => {
   const { Currency } = useContext(ShopContext);
 
   return (
-    <Link to={`/product/${id}`} className='flex flex-col gap-2 w-full lg:w-120 text-gray-600 bg-[#efeeee] cursor-pointer transition-all duration-500 shadow-md hover:shadow-2xl hover:translate-y-0.5 rounded-xl mt-10'>
+    <Link to={`/product/${id}`} className='flex flex-col gap-2 w-full text-gray-600 bg-[#efeeee] cursor-pointer transition-all duration-500 shadow-md hover:shadow-2xl hover:translate-y-0.5 rounded-xl mt-10'>
       <div className='overflow-hidden'>
         <img src={image} alt={name} className='transition-all duration-500 hover:scale-110 ease-in-out w-full lg:w-120 h-100 object-cover'/>
       </div>

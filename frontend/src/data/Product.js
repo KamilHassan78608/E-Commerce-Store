@@ -17,7 +17,7 @@ import pic15 from '../assets/pic15.png';
 const products = [
   {
     _id: "prod001",
-    name: "Women Round Neck Cotton Top",
+    name: "Jeans Jacket for Boys",
     description: "A lightweight, knitted pullover shirt, close-fitting and with a round neckline. Perfect for casual wear.",
     price: 100,
     image: pic1,
