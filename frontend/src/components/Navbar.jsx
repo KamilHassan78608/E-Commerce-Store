@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import { ShopContext } from '../contents/ShopContext'
 import { Search, User, Package, LogOut, ShoppingCart, Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
+
   const [isVisible, setIsVisible] = useState(false);
+  const { setshowsearch, showsearch } = useContext(ShopContext)
+
+  const handlesearch = () => {
+    setshowsearch(!showsearch);
+    navigate("/collection");
+  }
 
   return (
     <div className="flex justify-between items-center py-5 font-medium px-4 md:px-10 relative">
@@ -37,7 +45,7 @@ const Navbar = () => {
       <div className="flex items-center gap-5">
         {/* Search */}
         <Search
-          onClick={() => setActive(!active)}
+          onClick={handlesearch}
           className="w-5 h-5 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300"
         />
 
