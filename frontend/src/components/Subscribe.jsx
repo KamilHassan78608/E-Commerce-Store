@@ -11,7 +11,7 @@ export default function Subscribe() {
       <div className="shadow-lg rounded-2xl p-8 text-center">
         <Mail className="w-12 h-12 text-gray-500 mx-auto mb-3" />
         <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-          Subscribe to our Newsletter
+          Subscribe to our Dukam
         </h2>
         <p className="text-gray-500 mb-6">
           Get the latest updates, articles, and resources — straight to your inbox.

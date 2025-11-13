@@ -40,11 +40,6 @@ const Navbar = () => {
           onClick={() => setActive(!active)}
           className="w-5 h-5 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300"
         />
-        <input
-          type="text"
-          placeholder="Search..."
-          className={`outline-none border-b border-gray-400 focus:border-black bg-transparent transition-all duration-500 ease-in-out overflow-hidden ${active ? "w-40 sm:w-60 opacity-100 px-2" : "w-0 opacity-0 px-0 border-transparent"}`}
-        />
 
         {/* User Dropdown */}
         <div className="group relative">
