@@ -114,7 +114,7 @@ const products = [
   {
     _id: "prod009",
     name: "Kids' Denim Overalls",
-    description: "Comfortable denim overalls for kids, adjustable straps.",
+    description: "Comfortable denim overalls for kids, adjustable straps Comfortable denim overalls for kids, adjustable straps Comfortable denim overalls for kids, adjustable straps Comfortable denim overalls for kids, adjustable straps.",
     price: 55,
     image: pic9,
     category: "Kids",

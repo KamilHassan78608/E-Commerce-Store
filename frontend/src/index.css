@@ -11,6 +11,11 @@
   font-style: normal;
 }
 
+
+::-webkit-scrollbar{
+  display: none;
+}
+
 .michroma-regular {
   font-family: "Michroma", sans-serif;
   font-weight: 400;

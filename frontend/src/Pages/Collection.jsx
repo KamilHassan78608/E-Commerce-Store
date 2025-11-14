@@ -6,7 +6,7 @@ import ProductItem from '../components/ProductItem';
 
 const Collection = () => {
 
-  const { products } = useContext(ShopContext);
+  const { products, search, showsearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -31,6 +31,10 @@ const Collection = () => {
 
   const applyFilter = () => {
     let productsCopy = products.slice();
+
+    if (showsearch && search) {
+      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+    }
 
     if(category.length > 0) {
       productsCopy = productsCopy.filter(item => category.includes(item.category));
@@ -61,7 +65,7 @@ const Collection = () => {
 
   useEffect(() => {
     applyFilter();
-  }, [category, subcategory]);
+  }, [category, subcategory, search, showsearch]);
 
   useEffect(() => {
     applySort();
@@ -135,7 +139,7 @@ const Collection = () => {
           </select>
         </div>
         {/* Products */}
-        <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
           {
             filterProducts.map((item) => (
               <ProductItem key={item._id} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} />
