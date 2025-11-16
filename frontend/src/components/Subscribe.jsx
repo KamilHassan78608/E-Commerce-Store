@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Subscribe() {
 
@@ -7,6 +8,12 @@ export default function Subscribe() {
     }
 
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}// animate when visible
+      viewport={{ once: true, amount: 0.2 }}  // animate once only
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
     <div className="flex flex-col items-center justify-center mb-20">
       <div className="shadow-lg rounded-2xl p-8 text-center">
         <Mail className="w-12 h-12 text-gray-500 mx-auto mb-3" />
@@ -37,5 +44,6 @@ export default function Subscribe() {
         </p>
       </div>
     </div>
+    </motion.div>
   );
 }

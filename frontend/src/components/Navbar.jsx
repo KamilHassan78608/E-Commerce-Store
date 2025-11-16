@@ -42,42 +42,49 @@ const Navbar = () => {
 
 
       {/* Right Icons */}
-      <div className="flex items-center gap-5">
-        {/* Search */}
-        <Search
-          onClick={handlesearch}
-          className="w-5 h-5 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300"
-        />
+<div className="flex items-center gap-3 md:gap-5">
 
-        {/* User Dropdown */}
-        <div className="group relative">
-          <User className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300" />
-          <div className="group-hover:block hidden absolute right-0 pt-4">
-            <div className="flex flex-col gap-2 w-36 py-5 px-5 bg-slate-100 text-gray-700 rounded shadow-md text-[10px]">
-              <p className="flex items-center gap-2 cursor-pointer hover:text-black transition-colors duration-300">
-                <User className="w-4 h-4" /> My Profile
-              </p>
-              <hr />
-              <p className="flex items-center gap-2 cursor-pointer hover:text-black transition-colors duration-300">
-                <Package className="w-4 h-4" /> Orders
-              </p>
-              <hr />
-              <p className="flex items-center gap-2 cursor-pointer hover:text-black transition-colors duration-300">
-                <LogOut className="w-4 h-4" /> Log Out
-              </p>
-            </div>
-          </div>
-        </div>
+  {/* Search */}
+  <Search
+    onClick={handlesearch}
+    className="w-5 h-5 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300"
+  />
 
-        {/* Cart */}
-        <Link to="/cart" className="relative">
-          <ShoppingCart className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300" />
-          <p className="absolute -right-1 -bottom-1 w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">{countCartItems()}</p>
-        </Link>
+  {/* User Dropdown */}
+  <div className="relative">
+    <User className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300" />
+    <div className="hidden group-hover:flex absolute right-0 mt-2 flex-col gap-2 w-36 py-5 px-5 bg-slate-100 text-gray-700 rounded shadow-md text-[10px]">
+      <p className="flex items-center gap-2 cursor-pointer hover:text-black">
+        <User className="w-4 h-4" /> My Profile
+      </p>
+      <hr />
+      <p className="flex items-center gap-2 cursor-pointer hover:text-black">
+        <Package className="w-4 h-4" /> Orders
+      </p>
+      <hr />
+      <p className="flex items-center gap-2 cursor-pointer hover:text-black">
+        <LogOut className="w-4 h-4" /> Log Out
+      </p>
+    </div>
+  </div>
 
-        {/* Mobile Menu Icon */}
-        <Menu onClick={() => setIsVisible(true)} className="w-5 h-5 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300 md:hidden" />
-      </div>
+  {/* Cart */}
+  <Link to="/cart" className="relative">
+    <ShoppingCart className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300" />
+    <p className="absolute -right-1 -bottom-1 w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
+      {countCartItems()}
+    </p>
+  </Link>
+
+  {/* Mobile Menu Icon */}
+  <div className="md:hidden flex items-center">
+    <Menu
+      onClick={() => setIsVisible(true)}
+      className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300"
+    />
+  </div>
+</div>
+
 
       {/* Mobile Dropdown Menu */}
       {isVisible && (
