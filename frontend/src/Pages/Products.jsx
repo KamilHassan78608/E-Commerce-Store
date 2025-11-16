@@ -7,7 +7,7 @@ import RelatedProducts from '../components/RelatedProducts';
 const Products = () => {
 
   const { productId } = useParams();
-  const { products, Currency } = useContext(ShopContext);
+  const { products, Currency, addToCart  } = useContext(ShopContext);
   const [productData, setproductData] = useState([]);
   const [image, setimage] = useState('');
   const [size, setsize] = useState('');
@@ -34,15 +34,15 @@ const Products = () => {
         <div className="flex-1 flex flex-col-reverse sm:flex-row gap-3">
 
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-auto w-full sm:w-[18%] gap-3">
-            <img src={image} className="w-[24%] sm:w-full cursor-pointer shrink-0" />
-            <img src={image} className="w-[24%] sm:w-full cursor-pointer shrink-0" />
-            <img src={image} className="w-[24%] sm:w-full cursor-pointer shrink-0" />
-            <img src={image} className="w-[24%] sm:w-full cursor-pointer shrink-0" />
+            <img src={image} alt='image' className="w-[24%] sm:w-full cursor-pointer shrink-0" />
+            <img src={image} alt='image' className="w-[24%] sm:w-full cursor-pointer shrink-0" />
+            <img src={image} alt='image' className="w-[24%] sm:w-full cursor-pointer shrink-0" />
+            <img src={image} alt='image' className="w-[24%] sm:w-full cursor-pointer shrink-0" />
           </div>
 
           {/* Main Image */}
           <div className="w-full sm:w-[82%]">
-            <img src={image} className="w-full h-auto rounded" />
+            <img src={image} alt='image' className="w-full h-auto rounded" />
           </div>
         </div>
 
@@ -75,7 +75,7 @@ const Products = () => {
               }
             </div>
           </div>
-          <button className='bg-gray-700 px-8 py-3 text-white cursor-pointer text-lg font-bold active:bg-black rounded-xl shadow-2xl'>Add to Cart</button>
+          <button onClick={()=>addToCart(productData._id, size)} className='bg-gray-700 px-8 py-3 text-white cursor-pointer text-lg font-bold active:bg-black rounded-xl shadow-2xl'>Add to Cart</button>
           <hr className='mt-8 sm:w-4/5' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
             <p>100% Original Product.</p>

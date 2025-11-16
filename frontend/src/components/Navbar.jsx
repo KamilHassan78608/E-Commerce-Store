@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [isVisible, setIsVisible] = useState(false);
-  const { setshowsearch, showsearch } = useContext(ShopContext)
+  const { setshowsearch, showsearch, countCartItems } = useContext(ShopContext)
 
   const handlesearch = () => {
     setshowsearch(!showsearch);
@@ -72,7 +72,7 @@ const Navbar = () => {
         {/* Cart */}
         <Link to="/cart" className="relative">
           <ShoppingCart className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black transition-colors duration-300" />
-          <p className="absolute -right-1 -bottom-1 w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">10</p>
+          <p className="absolute -right-1 -bottom-1 w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">{countCartItems()}</p>
         </Link>
 
         {/* Mobile Menu Icon */}
