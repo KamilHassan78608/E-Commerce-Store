@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from "framer-motion";
 
 const Login = () => {
 
@@ -10,7 +11,13 @@ const Login = () => {
 
 
   return (
-    <form onSubmit={handleSubmission} className='flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-4 gap-4 text-gray-800'>
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}// animate when visible
+      viewport={{ once: true, amount: 0.2 }}  // animate once only
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+    <form onSubmit={handleSubmission} className='flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-8 mb-14 gap-4 text-gray-800'>
       <div className='inline-flex items-center gap-2 mb-2'>
         <hr className='border-none h-[1.5px] w-8 bg-gray-800' />
         <p className='prata-regular text-3xl'>{currentState}</p>
@@ -32,6 +39,7 @@ const Login = () => {
           {currentState === 'Login' ? "Sign In" : "Sign Up"}
       </button>
     </form>
+    </motion.div>
   )
 }
 
