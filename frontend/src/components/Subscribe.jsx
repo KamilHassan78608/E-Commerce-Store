@@ -33,7 +33,7 @@ export default function Subscribe() {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white px-5 py-3 font-medium hover:bg-blue-600 transition"
+            className="bg-green-600 text-white px-5 py-3 font-medium cursor-pointer hover:bg-green-800 transition"
           >
             Subscribe
           </button>
