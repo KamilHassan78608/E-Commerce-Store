@@ -6,7 +6,7 @@ import TotalCart from './TotalCart';
 
 
 const Cart = () => {
-  const {products , cart , Currency, updateQuantity} = useContext(ShopContext);
+  const {products , cart , Currency, updateQuantity, navigate} = useContext(ShopContext);
   const [cartData, setcartData] = useState([]);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ const Cart = () => {
       <div className='w-full sm:w-[450px]'>
         <TotalCart />
         <div className='w-full text-end'>
-          <button className='bg-gray-700 px-8 py-3 text-white cursor-pointer text-lg font-bold active:bg-black rounded-xl shadow-2xl mt-10 transition-all duration-300 hover:-translate-y-2'>Proceed to CheckOut</button>
+          <button onClick={()=>navigate('/placeorder')} className='bg-gray-700 px-8 py-3 text-white cursor-pointer text-lg font-bold active:bg-black rounded-xl shadow-2xl mt-10 transition-all duration-300 hover:-translate-y-2'>Proceed to CheckOut</button>
 
         </div>
       </div>
