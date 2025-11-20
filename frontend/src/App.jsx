@@ -1,53 +1,9 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Home from './Pages/Home'
-import Collection from './Pages/Collection'
-import Contact from './Pages/Contact'
-import About from './Pages/About'
-import Product from './Pages/Products'
-import Cart from './Pages/Cart'
-import Login from './Pages/Login'
-import PlaceOrder from './Pages/PlaceOrder'
-import Order from './Pages/Orders'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Searchbar from './components/Searchbar'
-import { ToastContainer, toast, Bounce } from 'react-toastify';
 
-
-const App = () => {
+export default function App() {
   return (
-    <div className='px-10 sm:px-[5vw] md:px-[7vw] lg:px-[8vw]'>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        transition={Bounce}
-      />
-      <Navbar />
-      <Searchbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/collection' element={<Collection />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/product/:productId' element={<Product />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/placeorder' element={<PlaceOrder />} />
-        <Route path='/orders' element={<Order />} />
-      </Routes>
-      <Footer />
-
+    <div>
+      
     </div>
   )
 }
-
-export default App
