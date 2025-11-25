@@ -4,6 +4,7 @@ import 'dotenv/config'
 import connectDB from './config/mongodb.js';
 import connectClaudinary from './config/claudinary.js';
 import userRouter from './routes/userRoute.js'
+import productRouter from './routes/productRoute.js';
 
 
 // App Configuration
@@ -18,6 +19,7 @@ app.use(cors());
 
 // API EndPoints
 app.use('/api/user', userRouter);
+app.use('/api/product', productRouter);
 
 app.get('/', (req, res) => {
     res.send("Api is Correct");

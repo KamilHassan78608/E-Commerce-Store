@@ -21,13 +21,13 @@ const Product_Schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    sub_category: {
+    subCategory: {
         type: String,
         required: true
     },
-    size: {
-        type: Array,
-        required: true
+    sizes: {
+    type: Array,
+    required: true
     },
     best_seller: {
         type: Boolean,
