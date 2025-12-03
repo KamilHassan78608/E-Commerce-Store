@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import Navbar from './components/Navbar'
+import SideBar from './components/SideBar'
+import Add from './Pages/Add'
+import List from './Pages/List'
+import Orders from './Pages/Orders'
+import Login from './components/Login'
 
-function App() {
-  const [count, setCount] = useState(0)
+export const BACKEND_URL = import.meta.env.BACKEND_URL
+
+const App = () => {
+
+  const [Token, setToken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):'');
+    
+
+  useEffect(()=>{
+    localStorage.setItem('token', Token);
+  }, [Token])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='px-10 md:px-20 bg-gray-50 min-h-screen'>
+      <ToastContainer />
+      {
+        !Token
+          ?
+          <Login settoken={setToken}/>
+          :
+          <>
+            <Navbar settoken={setToken}/>
+            <hr />
+            <div className='flex w-full'>
+              <SideBar />
+              <div className='w-[70%] mx-auto ml-[max(5vw, 25px)] my-8 text-gray-600 text-base'>
+                <Routes>
+                  <Route path='/add' element={<Add token={Token} />} />
+                  <Route path='/add' element={<List token={Token} />} />
+                  <Route path='/add' element={<Orders token={Token} />} />
+                </Routes>
+              </div>
+            </div>
+          </>
+      }
+
+    </div>
   )
 }
 
