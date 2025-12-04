@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { BACKEND_URL } from '../App';
 import { toast } from 'react-toastify';
 
-const Login = ({settoken}) => {
+const Login = ({setToken}) => {
 
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -13,7 +13,7 @@ const Login = ({settoken}) => {
       event.preventDefault();
       const response = await axios.post('http://localhost:3000/api/user/admin', {email, password});
       if(response.data.success){
-        settoken(response.data.token)
+        setToken(response.data.token)
         toast.success("Succesfully Login")
       }else{
         toast.error(response.data.message)

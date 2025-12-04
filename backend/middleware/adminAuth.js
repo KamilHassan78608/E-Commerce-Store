@@ -1,30 +1,25 @@
-import jwt from 'jsonwebtoken'
+const adminAuth = (req, res, next) => {
+  const token = req.headers.token;
 
-const adminAuth = async (req, res, next) => {
+  console.log("Received token:", req.headers.token);
 
-    try {
-        const token = req.headers
-        if (!token) {
-            return res.json({
-                success: false,
-                message: "Not Authorized token!"
-            })
-        }
-        const token_decode = jwt.verify(token, process.env.JWT_SECRET)
-        if (token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
-            return res.json({
-                success: false,
-                message: "Not Authorized token!"
-            })
-        }
-        next()
-    } catch (error) {
-        console.log(error);
-        return res.json({
-            success: false,
-            message: error.message
-        })
-    }
-}
 
-export default adminAuth
+  if (!token) {
+    return res.json({ success: false, message: 'No token provided' });
+  }
+
+  // token format: "email,password"
+  const [email, password] = token.split(',');
+
+  // Hard-coded admin credentials
+  const ADMIN_EMAIL = "kamil@email.com";
+  const ADMIN_PASSWORD = "qwerty12345";
+
+  if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+    return next();
+  }
+
+  return res.json({ success: false, message: 'Unauthorized' });
+};
+
+export default adminAuth;

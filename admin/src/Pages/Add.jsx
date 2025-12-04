@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Upload } from 'lucide-react';
 import axios from 'axios'
+import toast from 'react-toastify'
 
-const Add = ({token}) => {
+const Add = ({ token }) => {
 
   const [image1, setimage1] = useState(false)
   const [image2, setimage2] = useState(false)
@@ -24,7 +25,7 @@ const Add = ({token}) => {
       const formData = new FormData();
 
       formData.append('name', Name)
-      formData.append('description', Description )
+      formData.append('description', Description)
       formData.append('price', Price)
       formData.append('category', Category)
       formData.append('subCategory', SubCategory)
@@ -36,14 +37,27 @@ const Add = ({token}) => {
       image3 && formData.append('image3', image3)
       image4 && formData.append('image4', image4)
 
-      const response = await axios.post("http://localhost:3000/api/product/add", formData, {headers: {token}})
+      const response = await axios.post("http://localhost:3000/api/product/add", formData, {
+        headers: {token}
+      });
 
-      console.log(response.data)
+      if(response.data.success){
+        toast.success(response.data.message)
+        setName('')
+        setDescription('')
+        setPrice('')
+        setimage1(false)
+        setimage2(false)
+        setimage3(false)
+        setimage4(false)
+      }else{
+        toast.error(response.data.message)
+      }
 
     } catch (error) {
-      
+       console.log(error)
+       toast.error(error)
     }
-
   }
 
   return (
@@ -56,26 +70,26 @@ const Add = ({token}) => {
         <div className="flex gap-4">
           <label htmlFor="image1">
             <div className="w-20 h-20 bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg flex justify-center items-center cursor-pointer overflow-hidden">
-              {!image1 ? <Upload className="w-6 opacity-40"/> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image1)} alt="" />} 
-              <input onChange={(e)=>setimage1(e.target.files[0])} type="file" id="image1" hidden/>
+              {!image1 ? <Upload className="w-6 opacity-40" /> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image1)} alt="" />}
+              <input onChange={(e) => setimage1(e.target.files[0])} type="file" id="image1" hidden />
             </div>
           </label>
           <label htmlFor="image2">
             <div className="w-20 h-20 bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg flex justify-center items-center cursor-pointer overflow-hidden">
-              {!image2 ? <Upload className="w-6 opacity-40"/> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image2)} alt="" />} 
-              <input onChange={(e)=>setimage2(e.target.files[0])} type="file" id="image2" hidden/>
+              {!image2 ? <Upload className="w-6 opacity-40" /> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image2)} alt="" />}
+              <input onChange={(e) => setimage2(e.target.files[0])} type="file" id="image2" hidden />
             </div>
           </label>
           <label htmlFor="image3">
             <div className="w-20 h-20 bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg flex justify-center items-center cursor-pointer overflow-hidden">
-              {!image3 ? <Upload className="w-6 opacity-40"/> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image3)} alt="" />} 
-              <input onChange={(e)=>setimage3(e.target.files[0])} type="file" id="image3" hidden/>
+              {!image3 ? <Upload className="w-6 opacity-40" /> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image3)} alt="" />}
+              <input onChange={(e) => setimage3(e.target.files[0])} type="file" id="image3" hidden />
             </div>
           </label>
           <label htmlFor="image4">
             <div className="w-20 h-20 bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg flex justify-center items-center cursor-pointer overflow-hidden">
-              {!image4 ? <Upload className="w-6 opacity-40"/> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image4)} alt="" />} 
-              <input onChange={(e)=>setimage4(e.target.files[0])} type="file" id="image4" hidden/>
+              {!image4 ? <Upload className="w-6 opacity-40" /> : <img className="w-full h-full object-cover" src={URL.createObjectURL(image4)} alt="" />}
+              <input onChange={(e) => setimage4(e.target.files[0])} type="file" id="image4" hidden />
             </div>
           </label>
         </div>
@@ -87,7 +101,7 @@ const Add = ({token}) => {
         <input
           type="text"
           placeholder='Type here'
-          onChange={(e)=> setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           value={Name}
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
         />
@@ -98,7 +112,7 @@ const Add = ({token}) => {
         <p className="text-sm font-medium text-gray-700 mb-2">Product Description</p>
         <textarea
           placeholder='Write content here'
-          onChange={(e)=>setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
           value={Description}
           rows="4"
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none"
@@ -109,7 +123,7 @@ const Add = ({token}) => {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="text-sm font-medium text-gray-700 mb-2">Product Category</p>
-          <select onChange={(e)=>setCategory(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black bg-white">
+          <select onChange={(e) => setCategory(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black bg-white">
             <option value="Men">Men</option>
             <option value="Women">Women</option>
             <option value="Kids">Kids</option>
@@ -118,7 +132,7 @@ const Add = ({token}) => {
 
         <div>
           <p className="text-sm font-medium text-gray-700 mb-2">Sub Category</p>
-          <select onChange={(e)=>setSubCategory(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black bg-white">
+          <select onChange={(e) => setSubCategory(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black bg-white">
             <option value="Topwear">Topwear</option>
             <option value="Bottomwear">Bottomwear</option>
             <option value="Winterwear">Winterwear</option>
@@ -132,7 +146,7 @@ const Add = ({token}) => {
         <input
           type="number"
           placeholder='25'
-          onChange={(e)=>setPrice(e.target.value)}
+          onChange={(e) => setPrice(e.target.value)}
           value={Price}
           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
         />
@@ -145,8 +159,8 @@ const Add = ({token}) => {
           {['S', 'M', 'L', 'XL', 'XXL'].map((size) => (
             <div key={size} className="cursor-pointer">
               <p
-              onClick={()=> setSizes(prev => prev.includes(size) ? prev.filter(item => item !== size) : [...prev, size])}
-              className={`px-4 py-2 cursor-pointer border ${Sizes.includes(size) ? "bg-gray-800 text-white" : "bg-gray-100"}`}>
+                onClick={() => setSizes(prev => prev.includes(size) ? prev.filter(item => item !== size) : [...prev, size])}
+                className={`px-4 py-2 cursor-pointer border ${Sizes.includes(size) ? "bg-gray-800 text-white" : "bg-gray-100"}`}>
                 {size}
               </p>
             </div>
@@ -159,7 +173,7 @@ const Add = ({token}) => {
         <input
           type="checkbox"
           id='Bestseller'
-          onChange={()=> setBestseller(prev => !prev)}
+          onChange={() => setBestseller(prev => !prev)}
           checked={Bestseller}
           className="w-4 h-4 text-black border-gray-300 rounded focus:ring-black"
         />

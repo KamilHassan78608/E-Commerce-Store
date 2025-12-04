@@ -25,7 +25,7 @@ const App = () => {
       {
         !Token
           ?
-          <Login settoken={setToken}/>
+          <Login setToken={setToken}/>
           :
           <>
             <Navbar settoken={setToken}/>
@@ -35,8 +35,8 @@ const App = () => {
               <div className='w-[70%] mx-auto ml-[max(5vw, 25px)] my-8 text-gray-600 text-base'>
                 <Routes>
                   <Route path='/add' element={<Add token={Token} />} />
-                  <Route path='/add' element={<List token={Token} />} />
-                  <Route path='/add' element={<Orders token={Token} />} />
+                  <Route path='/list' element={<List token={Token} />} />
+                  <Route path='/order' element={<Orders token={Token} />} />
                 </Routes>
               </div>
             </div>
