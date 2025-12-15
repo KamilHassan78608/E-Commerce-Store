@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ShopContext } from '../contents/ShopContext'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { motion } from "framer-motion";
 
 const ProductItem = ({ id, name, description, price, image }) => {
 
-  const { Currency } = useContext(ShopContext);
+  
+  const { Currency, navigate } = useContext(ShopContext);
 
   return (
     <motion.div 

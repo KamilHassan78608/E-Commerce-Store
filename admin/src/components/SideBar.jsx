@@ -3,57 +3,37 @@ import { NavLink } from 'react-router-dom'
 import { Plus, List, ShoppingCart } from 'lucide-react'
 
 const SideBar = () => {
-  const linkBase =
-    "flex items-center rounded-lg border shadow-xl transition font-medium";
-
   return (
-    <div className="h-screen flex flex-col p-4" >
-      <div className="flex flex-col gap-3 mt-4">
+    <div className="w-18 md:w-64 bg-white border-r border-gray-200 px-4 py-6">
+      
+      <div className="flex flex-row md:flex-col gap-4">
 
-        <NavLink
-          to="/add"
-          className={({ isActive }) =>
-            isActive
-              ? `${linkBase} bg-gray-900 text-white`
-              : `${linkBase} text-gray-700 hover:bg-gray-100 hover:text-black`
-          }
+        <NavLink 
+          to="/add" 
+          className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${isActive ? "bg-black text-white shadow-md" : "text-gray-600 hover:bg-gray-100 hover:text-black"}`}
         >
-          {/* Small screens = center | md screens = normal layout */}
-          <div className="flex items-center justify-center w-full md:w-auto md:justify-start gap-3 px-2 py-3 md:px-4">
-            <Plus size={20} />
-            <p className="hidden md:block">Add</p>
-          </div>
+          <Plus size={20} />
+          <p className="hidden md:block font-medium">Add Items</p>
         </NavLink>
 
-        <NavLink
-          to="/list"
-          className={({ isActive }) =>
-            isActive
-              ? `${linkBase} bg-gray-900 text-white`
-              : `${linkBase} text-gray-700 hover:bg-gray-100 hover:text-black`
-          }
+        <NavLink 
+          to="/list" 
+          className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${isActive ? "bg-black text-white shadow-md" : "text-gray-600 hover:bg-gray-100 hover:text-black"}`}
         >
-          <div className="flex items-center justify-center w-full md:w-auto md:justify-start gap-3 px-2 py-3 md:px-4">
-            <List size={20} />
-            <p className="hidden md:block">List</p>
-          </div>
+          <List size={20} />
+          <p className="hidden md:block font-medium">List Items</p>
         </NavLink>
 
-        <NavLink
-          to="/order"
-          className={({ isActive }) =>
-            isActive
-              ? `${linkBase} bg-gray-900 text-white`
-              : `${linkBase} text-gray-700 hover:bg-gray-100 hover:text-black`
-          }
+        <NavLink 
+          to="/order" 
+          className={({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${isActive ? "bg-black text-white shadow-md" : "text-gray-600 hover:bg-gray-100 hover:text-black"}`}
         >
-          <div className="flex items-center justify-center w-full md:w-auto md:justify-start gap-3 px-2 py-3 md:px-4">
-            <ShoppingCart size={20} />
-            <p className="hidden md:block">Order</p>
-          </div>
+          <ShoppingCart size={20} />
+          <p className="hidden md:block font-medium">Orders</p>
         </NavLink>
 
       </div>
+
     </div>
   )
 }
